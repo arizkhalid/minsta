@@ -1,0 +1,52 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+target/
+.tauri/
+# Env files (important)
+.env
+.env.*
+
+# Tauri generated
+src-tauri/gen/
+
+# Rust artifacts (you already have target/, but be explicit)
+src-tauri/target/
+
+# Build / cache leftovers
+build/
+out/
+.cache/
+
+# OS junk (Windows too)
+Thumbs.db
+
+# Coverage / test
+coverage/
+
+# Optional: lockfiles if you ever switch package managers
+# (keep ONE, don’t ignore all)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
