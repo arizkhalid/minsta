@@ -17,9 +17,8 @@ And removes the high distraction features:
 
 --- 
 
-# How it works?
-
-- Its a very simple CSS and JS injection to instagram's web view, these injections simply hide unwanted content and replace URLs.
+## How it works?
+Its a very simple CSS and JS injection to instagram's web view, these injections simply hide unwanted content and replace URLs.
 
 ---
 
