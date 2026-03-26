@@ -1,11 +1,13 @@
 # Minsta
 
-**Minsta** or **Minimal Instagram** is a distraction free Instagram experience focused on connection with friends only.
+**Minsta** or **Minimal Instagram** is a distraction free Instagram focused on connection with friends only.
+Minsta was built for my personal use to use Instagram more intentionally, staying connected with friends without getting pulled into endless discovery feeds.
 
 It keeps the core social features:
 - **Stories**
 - **DMs**
 - **Posts from people you follow**
+- **Posts/Reels received in DMs**
 
 And removes the high distraction features:
 - **Reels**
@@ -13,23 +15,11 @@ And removes the high distraction features:
 - **Search page**
 - **Selective suggested posts on the Home feed**
 
----
+--- 
 
-## Why Minsta?
+# How it works?
 
-Minsta was built for my personal use to use Instagram more intentionally, staying connected with friends without getting pulled into endless discovery feeds.
-
----
-
-## Features
-
-- ✅ View and interact with **Stories**
-- ✅ Send and receive **Direct Messages (DMs)**
-- ✅ Browse **posts from accounts you follow**
-- ❌ No **Reels**
-- ❌ No **Explore**
-- ❌ No **Search**
-- ❌ No **suggested posts** in Home (selectively removed)
+- Its a very simple CSS and JS injection to instagram's web view, these injections simply hide unwanted content and replace URLs.
 
 ---
 
