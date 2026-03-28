@@ -90,10 +90,34 @@ pub fn run() {
                 }
 
                 hideSuggestedAndBelow();
+
+                // DMs only scroll disable
+                function disableReelOverlayScroll() {
+                    const reel = document.querySelector('[data-reel-type]');
+                    if (!reel) return;
+
+                    // walk up to find scrollable ancestor
+                    let el = reel.parentElement;
+                    while (el) {
+                        const style = getComputedStyle(el);
+                        if (style.overflowY === 'scroll' || style.overflowY === 'auto') {
+                            el.style.overflowY = 'hidden';
+                            break;
+                        }
+                        el = el.parentElement;
+                    }
+                }
+
                 window.addEventListener("DOMContentLoaded", () => {
                     console.log("DOM ready");
 
-                    const observer = new MutationObserver(hideSuggestedAndBelow);
+                    const observer = new MutationObserver(() => {
+                    hideSuggestedAndBelow();
+                    const reel = document.querySelector('[data-reel-type]');
+                    if (reel) {
+                    disableReelOverlayScroll();
+                    }
+                    });
                     observer.observe(document.body, { childList: true, subtree: true });
                 });
 
