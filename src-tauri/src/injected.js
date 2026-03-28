@@ -57,7 +57,6 @@ function getTargetDiv(suggested) {
   return null;
 }
 function hideSuggestedAndBelow() {
-  console.log("Hiding Below")
   const allSpans = document.querySelectorAll('span, div, h1, h2, h3');
   const suggested = [...allSpans].find(el => {
     const text = el.textContent?.trim().toLowerCase() || '';
@@ -65,24 +64,18 @@ function hideSuggestedAndBelow() {
     const after = getComputedStyle(el, '::after').content.replace(/['"]/g, '').toLowerCase();
     return text === 'suggested posts' || before === 'suggested posts' || after === 'suggested posts';
   });
-  console.log(suggested);
   if (!suggested) return;
-  console.log("Found Suggested: ", suggested);
 
   const start = getTargetDiv(suggested);
-  console.log("Found Start: ", start);
   if (!start) return;
 
   let el = start.nextElementSibling; // use start.nextElementSibling if you want to keep the target div visible
-  console.log("EL AND START", el, start)
   while (el) {
     const next = el.nextElementSibling;
     el.style.display = 'none';
     el = next;
   }
 }
-
-hideSuggestedAndBelow();
 
 // DMs only scroll disable
 function disableReelOverlayScroll() {
@@ -101,15 +94,20 @@ function disableReelOverlayScroll() {
   }
 }
 
+function allowVideoUpload() {
+  const mainDiv = document.querySelector("[data-pagelet=IGDComposerForCannes]");
+  if (!mainDiv) return;
+  const inpt = document.querySelector('input[type="file"]');
+  inpt.accept = "audio/*,.mp4,.mov,.png,.jpg,.jpeg";
+}
+
 window.addEventListener("DOMContentLoaded", () => {
   console.log("DOM ready");
 
   const observer = new MutationObserver(() => {
     hideSuggestedAndBelow();
-    const reel = document.querySelector('[data-reel-type]');
-    if (reel) {
-      disableReelOverlayScroll();
-    }
+    disableReelOverlayScroll();
+    allowVideoUpload();
   });
   observer.observe(document.body, { childList: true, subtree: true });
 });
