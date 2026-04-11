@@ -53,3 +53,4 @@ coverage/
 release.keystore
 test.html
 /release
+.vscode
